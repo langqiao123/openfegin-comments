@@ -52,6 +52,7 @@ public interface Retryer extends Cloneable {
       return System.currentTimeMillis();
     }
 
+    //首先判断attempt是否达到阈值，达到则抛出异常，否则进一步计算interval,然后sleep
     public void continueOrPropagate(RetryableException e) {
       if (attempt++ >= maxAttempts) {
         throw e;
