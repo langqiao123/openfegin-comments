@@ -2,18 +2,11 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <parent>
-        <artifactId>parent</artifactId>
-        <groupId>io.github.openfeign</groupId>
-        <version>10.10.2-SNAPSHOT</version>
-    </parent>
     <modelVersion>4.0.0</modelVersion>
-
-    <groupId>io.github.openfeign</groupId>
-    <artifactId>feign-example-springboot</artifactId>
-
+    <groupId>example.springboot</groupId>
+    <artifactId>feign-example-springboot1</artifactId>
+    <version>1.0-SNAPSHOT</version>
     <properties>
-        <main.basedir>${project.basedir}/..</main.basedir>
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -41,7 +34,7 @@
                 <!-- Import dependency management from Spring Boot (依赖管理：继承一些默认的依赖，工程需要依赖的jar包的管理，申明其他dependency的时候就不需要version) -->
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-parent</artifactId>
-                <version>${spring-boot.version}</version>
+                <version>1.5.20.RELEASE</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -79,10 +72,17 @@
         <dependency>
             <groupId>io.github.openfeign</groupId>
             <artifactId>feign-core</artifactId>
+            <version>10.10.1</version>
         </dependency>
         <dependency>
             <groupId>io.github.openfeign</groupId>
             <artifactId>feign-okhttp</artifactId>
+            <version>10.10.1</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.openfeign</groupId>
+            <artifactId>feign-httpclient</artifactId>
+            <version>10.10.1</version>
         </dependency>
         <dependency>
             <groupId>org.apache.commons</groupId>
@@ -93,27 +93,9 @@
         <dependency>
             <groupId>io.github.openfeign</groupId>
             <artifactId>feign-jackson</artifactId>
+            <version>10.10.1</version>
         </dependency>
 
     </dependencies>
-
-    <build>
-        <defaultGoal>package</defaultGoal>
-        <plugins>
-            <!-- spring-boot-maven-plugin (提供了直接运行项目的插件：如果是通过parent方式继承spring-boot-starter-parent则不用此插件) -->
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-                <version>${spring-boot.version}</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>repackage</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
-    </build>
 
 </project>

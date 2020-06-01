@@ -1,0 +1,41 @@
+spring:
+  application:
+    name: fegin-example-springboot
+  cloud:
+    config:
+      uri: ${CONFIG_SERVER_URL:http://172.20.15.187:8888}
+      fail-fast: true
+      label: ${CONTRACT_LABEL:v1.0}
+  profiles:
+    active: ${CONTRACT_ACTIVE_PROFILE:dev}
+  redis:
+    host: 172.20.15.187
+    port: 6379
+    timeout: 6000
+  rabbitmq:
+    host: 172.20.15.187
+    port: 5672
+    username: guest
+    password: guest
+    virtual-host: /
+server:
+  port : 8088
+
+mybatis:
+  mapperLocations: classpath:mybatis/*Mapper.xml, classpath:mybatis-common/TbRabbitmqSendLogMapper.xml
+
+logging:
+  level:
+    ROOT: DEBUG
+    org.springframework: INFO
+    example.springboot.client: DEBUG
+
+feign:
+  httpclient:
+    enabled: false
+  okhttp:
+    enabled: true
+
+
+
+
