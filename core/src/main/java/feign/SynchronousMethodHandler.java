@@ -13,16 +13,18 @@
  */
 package feign;
 
+import feign.InvocationHandlerFactory.MethodHandler;
+import feign.Request.Options;
+import feign.codec.Decoder;
+import feign.codec.ErrorDecoder;
+
 import java.io.IOException;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CompletionException;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Stream;
-import feign.InvocationHandlerFactory.MethodHandler;
-import feign.Request.Options;
-import feign.codec.Decoder;
-import feign.codec.ErrorDecoder;
+
 import static feign.ExceptionPropagationPolicy.UNWRAP;
 import static feign.FeignException.errorExecuting;
 import static feign.Util.checkNotNull;
@@ -107,6 +109,7 @@ final class SynchronousMethodHandler implements MethodHandler {
   }
 
   Object executeAndDecode(RequestTemplate template, Options options) throws Throwable {
+      //构建request,可以请求前做些事情，可以自定义requestInterceptor,在request发送之前，将信息放入请求中
     Request request = targetRequest(template);
 
     if (logLevel != Logger.Level.NONE) {
@@ -157,6 +160,7 @@ final class SynchronousMethodHandler implements MethodHandler {
   }
 
   Request targetRequest(RequestTemplate template) {
+      //遍历拦截器
     for (RequestInterceptor interceptor : requestInterceptors) {
       interceptor.apply(template);
     }

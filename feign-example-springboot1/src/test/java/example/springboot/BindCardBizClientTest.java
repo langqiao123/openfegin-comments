@@ -4,9 +4,9 @@ import com.alibaba.fastjson.JSON;
 import example.springboot.client.BankBizClient;
 import example.springboot.dto.BankCardValidateBaseReqDto;
 import example.springboot.dto.BasicResponse;
+import example.springboot.interceptor.TokenRequestInterceptor;
 import feign.Feign;
 import feign.Logger;
-import feign.httpclient.ApacheHttpClient;
 import feign.jackson.JacksonDecoder;
 import feign.jackson.JacksonEncoder;
 import feign.okhttp.OkHttpClient;
@@ -27,13 +27,17 @@ public class BindCardBizClientTest extends UnitTestBase{
     @Autowired
     private HttpClient httpClient;
 
+    @Autowired
+    private TokenRequestInterceptor tokenRequestInterceptor;
+
     @Before
     public void init(){
         this.client = Feign.builder()
             .encoder(new JacksonEncoder())
             .decoder(new JacksonDecoder())
             .logLevel(Logger.Level.FULL)
-            .client(new ApacheHttpClient(httpClient))
+//            .client(new ApacheHttpClient(httpClient))
+            .requestInterceptor(tokenRequestInterceptor)
             .target(BankBizClient.class, "http://localhost:8088");
     }
 
