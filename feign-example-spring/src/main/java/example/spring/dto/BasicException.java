@@ -1,4 +1,4 @@
-package example.springboot.dto;
+package example.spring.dto;
 
 /**
  * @Author: yangmingyang

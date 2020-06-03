@@ -51,7 +51,8 @@
     <module>mock</module>
     <module>apt-test-generator</module>
     <module>benchmark</module>
-    <module>feign-example-springboot</module>
+    <module>feign-example-springboot1</module>
+    <module>feign-example-spring</module>
   </modules>
 
   <properties>
