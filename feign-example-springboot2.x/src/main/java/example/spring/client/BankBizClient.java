@@ -31,4 +31,12 @@ public interface BankBizClient {
     @RequestLine("POST /payment/bank/nameValidation2")
     @Headers({"Content-Type: application/json", "Accept: application/json"})
     BasicResponse<NameUnionMatchValidationDto> nameValidation2(BankCardValidateBaseReqDto2 req);
+
+    /**
+     *
+     * 银行卡有效性验证.
+     */
+    @RequestLine("POST /payment/bank/nameValidation2")
+    @Headers({"Content-Type: application/json", "Accept: application/json"})
+    BasicResponse<NameUnionMatchValidationDto> nameValidation3(BankCardValidateBaseReqDto2 req);
 }

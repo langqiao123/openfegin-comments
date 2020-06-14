@@ -19,7 +19,7 @@ spring:
     password: guest
     virtual-host: /
 server:
-  port : 8098
+  port : 8078
 
 mybatis:
   mapperLocations: classpath:mybatis/*Mapper.xml, classpath:mybatis-common/TbRabbitmqSendLogMapper.xml
