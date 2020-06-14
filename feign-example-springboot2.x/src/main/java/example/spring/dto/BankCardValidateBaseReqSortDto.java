@@ -11,7 +11,7 @@ import java.io.Serializable;
  */
 @Data
 @NoArgsConstructor
-public class BankCardValidateBaseReqDto implements Serializable {
+public class BankCardValidateBaseReqSortDto implements Serializable {
 
     /**
      * 银行账（卡）号

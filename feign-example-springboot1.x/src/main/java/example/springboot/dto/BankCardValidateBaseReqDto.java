@@ -1,7 +1,8 @@
-package example.spring.dto;
+package example.springboot.dto;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import example.springboot.config.CustomSortDeserializer;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 import org.springframework.data.domain.Sort;
 
 import java.io.Serializable;
@@ -10,7 +11,6 @@ import java.io.Serializable;
  * 银行卡校验
  */
 @Data
-@NoArgsConstructor
 public class BankCardValidateBaseReqDto implements Serializable {
 
     /**
@@ -44,8 +44,6 @@ public class BankCardValidateBaseReqDto implements Serializable {
      * 绑卡验证服务供应商
      */
     private String provider;
-
-//    @JsonSerialize(using = SortJacksonSerializer.class)
-//    @JsonDeserialize(using = SortJacksonDeserializer.class)
+    @JsonDeserialize(using = CustomSortDeserializer.class)
     private Sort sort;
 }

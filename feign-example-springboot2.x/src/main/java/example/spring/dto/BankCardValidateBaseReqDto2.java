@@ -1,7 +1,6 @@
 package example.spring.dto;
 
 import lombok.Data;
-import lombok.NoArgsConstructor;
 import org.springframework.data.domain.Sort;
 
 import java.io.Serializable;
@@ -10,8 +9,7 @@ import java.io.Serializable;
  * 银行卡校验
  */
 @Data
-@NoArgsConstructor
-public class BankCardValidateBaseReqDto implements Serializable {
+public class BankCardValidateBaseReqDto2 implements Serializable {
 
     /**
      * 银行账（卡）号
@@ -44,8 +42,6 @@ public class BankCardValidateBaseReqDto implements Serializable {
      * 绑卡验证服务供应商
      */
     private String provider;
-
-//    @JsonSerialize(using = SortJacksonSerializer.class)
-//    @JsonDeserialize(using = SortJacksonDeserializer.class)
-    private Sort sort;
+    private Sort.Direction direction;
+    private String property;
 }
