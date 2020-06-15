@@ -81,25 +81,4 @@ public class BankBizController {
         return result;
     }
 
-    /**
-     * 银行卡有效性验证.
-     */
-    @RequestMapping(value = {"/nameValidation4"}, method = RequestMethod.POST)
-    @ResponseBody
-    public BasicResponse<NameUnionMatchValidationDto> nameValidation4(@RequestBody BankCardValidateBaseReqDto2 req,@RequestParam Long userId) {
-        BasicResponse<NameUnionMatchValidationDto> result = new BasicResponse<>();
-        log.info("nameValidation,调用,param:{}", JSON.toJSONString(req));
-        try {
-            Thread.sleep(15* 1000);
-            result.setCode(1);
-            result.setMessage("成功");
-        } catch (Exception e) {
-            result.setCode(-1);
-            result.setMessage("失败");
-            log.info("nameValidation,调用失败,原因:{}", e);
-        }
-        log.info("nameValidation,调用,result:{}", JSON.toJSONString(result));
-        return result;
-    }
-
 }
