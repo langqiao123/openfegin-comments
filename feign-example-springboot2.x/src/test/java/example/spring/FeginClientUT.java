@@ -15,6 +15,7 @@ public class FeginClientUT extends UnitTestBase{
     public void testFallback(){
         feginTestClient.getError(1);
     }
+
     @Test
     public void testGet1(){
         System.out.println(feginTestClient.get1());
@@ -24,5 +25,13 @@ public class FeginClientUT extends UnitTestBase{
         feignDemo.setName("name");
         feignDemo.setAge(1);
         System.out.println(feginTestClient.post1(feignDemo));
+    }
+
+    @Test
+    public void testGet3(){
+        FeignDemoDto feignDemo = new FeignDemoDto();
+        feignDemo.setName("name");
+        feignDemo.setAge(1);
+        System.out.println(feginTestClient.get3(feignDemo));
     }
 }

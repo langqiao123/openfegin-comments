@@ -135,6 +135,28 @@ public class BindCardBizClientUT extends UnitTestBase{
 
     }
 
+    /**
+     * nameValidation2
+     */
+    @Test
+    public void nameValidation3() {
+
+        BankCardValidateBaseReqDto2 req = new BankCardValidateBaseReqDto2();
+        req.setBusinessNo("nameValidation:55:1");
+        req.setUserId(55L);
+        req.setAccountName("Philippine Gazzo");
+        req.setBankCode("MANDIRI");
+        req.setAccountNo("1150007319082");
+
+        req.setDirection(Sort.Direction.DESC);
+        req.setProperty("inserttime");
+        log.info("nameValidation,start.............：" + JSON.toJSON(req));
+        BasicResponse resp = client.nameValidation4(req,10L);
+
+        log.info("nameValidatio,end.................：" + JSON.toJSON(resp));
+
+    }
+
 
     /**
      * 测试jackson的序列化和反序列化

@@ -12,7 +12,6 @@ import example.spring.dto.BasicResponse;
 import example.spring.interceptor.TokenRequestInterceptor;
 import feign.Feign;
 import feign.Logger;
-import feign.Param;
 import feign.jackson.JacksonDecoder;
 import feign.jackson.JacksonEncoder;
 import feign.okhttp.OkHttpClient;
@@ -115,6 +114,28 @@ public class BindCardBizClientUT extends UnitTestBase{
 
 
     /**
+     * 复杂参数请求时，get转化为post
+     */
+    @Test
+    public void nameValidation3() {
+
+        BankCardValidateBaseReqDto2 req = new BankCardValidateBaseReqDto2();
+        req.setBusinessNo("nameValidation:55:1");
+        req.setUserId(55L);
+        req.setAccountName("Philippine Gazzo");
+        req.setBankCode("MANDIRI");
+        req.setAccountNo("1150007319082");
+
+        req.setDirection(Sort.Direction.DESC);
+        req.setProperty("inserttime");
+        log.info("nameValidation,start.............：" + JSON.toJSON(req));
+        BasicResponse resp = client.nameValidation3(req);
+
+        log.info("nameValidatio,end.................：" + JSON.toJSON(resp));
+
+    }
+
+    /**
      * nameValidation2
      */
     @Test
@@ -153,7 +174,29 @@ public class BindCardBizClientUT extends UnitTestBase{
         req.setDirection(Sort.Direction.DESC);
         req.setProperty("inserttime");
         log.info("nameValidation,start.............：" + JSON.toJSON(req));
-        BasicResponse resp = client.nameValidation4(req,10L);
+//        BasicResponse resp = client.nameValidation4(req,10L);
+
+//        log.info("nameValidatio,end.................：" + JSON.toJSON(resp));
+
+    }
+
+    /**
+     * nameValidation5
+     */
+    @Test
+    public void nameValidation5() {
+
+        BankCardValidateBaseReqDto2 req = new BankCardValidateBaseReqDto2();
+        req.setBusinessNo("nameValidation:55:1");
+        req.setUserId(55L);
+        req.setAccountName("Philippine Gazzo");
+        req.setBankCode("MANDIRI");
+        req.setAccountNo("1150007319082");
+
+        req.setDirection(Sort.Direction.DESC);
+        req.setProperty("inserttime");
+        log.info("nameValidation,start.............：" + JSON.toJSON(req));
+        BasicResponse resp = client.nameValidation5("11111111111",10L);
 
         log.info("nameValidatio,end.................：" + JSON.toJSON(resp));
 
