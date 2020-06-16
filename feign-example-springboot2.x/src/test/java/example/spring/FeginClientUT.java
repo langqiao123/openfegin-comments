@@ -34,4 +34,13 @@ public class FeginClientUT extends UnitTestBase{
         feignDemo.setAge(1);
         System.out.println(feginTestClient.get3(feignDemo));
     }
+
+
+    @Test
+    public void testPost4(){
+        FeignDemoDto feignDemo = new FeignDemoDto();
+        feignDemo.setName("name");
+        feignDemo.setAge(1);
+        System.out.println(feginTestClient.post4(feignDemo,10L));
+    }
 }

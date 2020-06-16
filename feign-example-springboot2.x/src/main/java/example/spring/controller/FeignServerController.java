@@ -1,9 +1,7 @@
 package example.spring.controller;
 
-import example.spring.client.FeignTestClient;
 import example.spring.dto.FeignDemoDto;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -24,6 +22,11 @@ public class FeignServerController {
     }
     @PostMapping("/post1")
     public FeignDemoDto  post1(@RequestBody FeignDemoDto demo) {
+        return demo;
+    }
+
+    @PostMapping("/post4")
+    public FeignDemoDto post4(@RequestBody FeignDemoDto demo,@RequestParam("userId") Long userId) {
         return demo;
     }
 }

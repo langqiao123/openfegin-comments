@@ -128,9 +128,9 @@ public class BankBizController {
      */
     @RequestMapping(value = {"/nameValidation5"}, method = RequestMethod.POST)
     @ResponseBody
-    public BasicResponse<NameUnionMatchValidationDto> nameValidation5(@RequestParam(value="userName") String userName,@RequestParam(value="userId") Long userId) {
+    public BasicResponse<NameUnionMatchValidationDto> nameValidation5(@RequestParam(value="userId1") String userId1,@RequestParam(value="userId") Long userId) {
         BasicResponse<NameUnionMatchValidationDto> result = new BasicResponse<>();
-        log.info("nameValidation,调用,userName:{},userId:{}", userName,userId);
+        log.info("nameValidation,调用,userId1:{},userId:{}", userId1,userId);
         try {
             Thread.sleep(15* 1000);
             result.setCode(1);

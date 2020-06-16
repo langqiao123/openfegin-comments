@@ -5,8 +5,7 @@ import feign.Headers;
 import feign.Param;
 import feign.RequestLine;
 import org.springframework.data.domain.Sort;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 public interface BankBizClient {
 
@@ -57,6 +56,6 @@ public interface BankBizClient {
      * 银行卡有效性验证.
      */
     @RequestLine("POST /payment/bank/nameValidation5")
-    @Headers({"Content-Type: application/json", "Accept: application/json"})
-    BasicResponse<NameUnionMatchValidationDto> nameValidation5(@Param("userName") String userName, @Param("userId") Long userId);
+    @Headers({"Content-Type: application/x-www-form-urlencoded", "Accept: application/json"})
+    BasicResponse<NameUnionMatchValidationDto> nameValidation5(@RequestParam("userId1") String userId1, @RequestParam("userId") Long userId);
 }

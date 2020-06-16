@@ -28,6 +28,10 @@ public interface FeignTestClient {
     public FeignDemoDto get3(@RequestBody FeignDemoDto demo);
 
 
+    @RequestMapping(value = "/post4", method = RequestMethod.POST)
+    public FeignDemoDto post4(@RequestBody FeignDemoDto demo,@RequestParam("userId") Long userId);
+
+
     @Component
     public class DefaultFallback implements FeignTestClient {
 
@@ -53,6 +57,11 @@ public interface FeignTestClient {
 
         @Override
         public FeignDemoDto get3(FeignDemoDto demo) {
+            return null;
+        }
+
+        @Override
+        public FeignDemoDto post4(FeignDemoDto demo, Long userId) {
             return null;
         }
     }

@@ -26,7 +26,7 @@ mybatis:
 
 logging:
   level:
-    ROOT: INFO
+    ROOT: DEBUG
     org.springframework: INFO
     example.springboot.client: INFO
 
